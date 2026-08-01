@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Sunscreen-tech/spf-client/releases
+scheme: semver
+component: spf-client
+current_version: 0.2.2
+notes: >-
+  The SPF service is a testnet and versions its client tooling via GitHub
+  releases (Rust CLI binary + npm package) and crates.io for the FHE compiler
+  crate family (sunscreen 0.8.1, parasol/tfhe crates 0.10.0). Only the most
+  recent published release window is captured here.
+entries:
+  - version: 0.2.2
+    date: '2025-10-18'
+    component: spf-client
+    url: https://github.com/Sunscreen-tech/spf-client/releases/tag/v0.2.2
+    breaking: false
+    highlights:
+      - Standalone spf-client CLI binary and @sunscreen/spf-client npm package release.

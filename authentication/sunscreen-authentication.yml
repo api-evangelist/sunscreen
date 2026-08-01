@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Sunscreen-tech/spf-client (README.md) + https://spf-docs.sunscreen.tech/docs/service
+summary:
+  types: [web3-signature]
+  api_key_in: []
+  oauth2_flows: []
+notes: >-
+  The Sunscreen SPF service does not use API keys or OAuth. Requests to the SPF
+  testnet REST service are authenticated with an Ethereum-style signature: the
+  client signs with a private key (a `PrivateKeySigner` holding a `0x...` key in
+  the TypeScript SDK, or `--private-key 0x...` on the Rust CLI). On-chain access
+  control (ACL) then governs which addresses may decrypt or run against a given
+  ciphertext. A "web2" mode lets an application server hold the signing key on
+  behalf of users; a "web3" mode signs directly from the user's wallet.
+schemes:
+  - name: PrivateKeySigner
+    type: web3-signature
+    scheme: ecdsa-secp256k1
+    key_format: "0x-prefixed Ethereum private key"
+    sources: [spf-client README, spf-docs.sunscreen.tech]
+    modes:
+      - name: web2
+        detail: Backend/application server holds the signing key and signs on behalf of users.
+      - name: web3
+        detail: User's wallet signs requests directly (browser demo shows both modes).
+authorization:
+  model: on-chain-acl
+  detail: Ciphertext access (admin / decrypt / run) is granted per-address and checked via the SPF smart-contract ACL.
+docs: https://spf-docs.sunscreen.tech/docs/acl

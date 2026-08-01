@@ -1,0 +1,57 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/Sunscreen-tech/spf-client (src/bin/cli.rs, README.md)
+name: spf-client
+binary: spf
+description: >-
+  Command-line client for Sunscreen's Secure Processing Framework (SPF). Encrypts
+  values client-side, uploads ciphertexts and compiled FHE programs to the SPF
+  testnet service, requests program runs, manages threshold decryption, and grants
+  or checks on-chain access control (ACL) for ciphertexts.
+install:
+  - method: github-release
+    detail: Download the standalone binary from https://github.com/Sunscreen-tech/spf-client/releases
+  - method: cargo
+    detail: "cargo build --release  (binary at ./target/release/spf-client)"
+env:
+  - name: RUST_LOG
+    detail: Set to info or debug for verbose output.
+auth:
+  style: web3-private-key
+  detail: Most commands take --private-key 0x... (an Ethereum private key used to sign requests).
+commands:
+  - name: generate-ciphertext
+    summary: Encrypt a value client-side (with --bits width) and optionally --upload it to SPF.
+  - name: upload-ciphertext
+    summary: Upload a locally generated encrypted ciphertext to the SPF service.
+  - name: upload-program
+    summary: Upload a compiled FHE program binary so it can be run on-chain.
+  - name: encrypt-bfv
+    summary: Encrypt a value under the BFV FHE scheme.
+  - name: decrypt
+    summary: Request threshold decryption of a ciphertext and retrieve the plaintext result.
+  - name: run
+    summary: Program-run lifecycle.
+    subcommands:
+      - name: submit
+        summary: Submit an FHE program run request with encoded encrypted inputs.
+      - name: check-status
+        summary: Poll the status of a submitted program run.
+      - name: derive-output
+        summary: Derive the output ciphertext of a completed run.
+  - name: access
+    summary: Manage ciphertext access control (ACL).
+    subcommands:
+      - name: grant
+        summary: Grant admin / decrypt / run access on a ciphertext to an address.
+        subcommands: [admin, decrypt, run]
+      - name: check
+        summary: Check whether an address holds admin / decrypt / run access.
+        subcommands: [admin, decrypt, run]
+  - name: new-wallet
+    summary: Generate a new wallet/keypair (hidden helper command).
+key_flows:
+  - "Encrypt & upload: spf-client generate-ciphertext --value=42 --bits 16 --upload --private-key 0x..."
+  - "Grant decrypt access: spf-client access grant decrypt --ciphertext-id 0x... --address 0x... --private-key 0x..."
+  - "Run a program: spf-client run submit ...  then  run check-status  then  run derive-output"
+docs: https://spf-docs.sunscreen.tech

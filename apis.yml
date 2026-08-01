@@ -1,8 +1,30 @@
 aid: sunscreen
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/sunscreen.png
 name: Sunscreen
-description: 'Sunscreen is a company surfaced as a portfolio company of northzone and added to the API
-  Evangelist network as a stub for enrichment. Sector: infra-devtools. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Sunscreen is a cryptography company building the Secure Processing Framework
+  (SPF) — an end-to-end platform for Fully Homomorphic Encryption (FHE) on
+  blockchain. SPF lets web2 and web3 developers write programs, compile them to
+  the Parasol FHE processor, and run them over encrypted data on-chain without
+  ever exposing plaintext. The stack includes the open-source Sunscreen FHE/ZKP
+  compiler (a family of Rust crates on crates.io), the Parasol processor runtime,
+  a TypeScript SDK (@sunscreen/spf-client) and a Rust CLI for encrypting values,
+  uploading FHE programs and ciphertexts, requesting threshold decryption, and
+  managing on-chain access control (ACL). Founded by cryptographers and engineers
+  from Nucypher, Microsoft, Meta, Tableau, Two Sigma and Caldera, and backed by
+  Northzone.
 url: https://raw.githubusercontent.com/api-evangelist/sunscreen/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +34,17 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Infra Devtools
+- Fully Homomorphic Encryption
+- Cryptography
+- Blockchain
+- Web3
+- Privacy
+- Developer Tools
+- FHE
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +54,34 @@ maintainers:
 common:
 - type: Website
   url: https://sunscreen.tech
+- type: DeveloperPortal
+  url: https://spf-docs.sunscreen.tech
+- type: Documentation
+  url: https://spf-docs.sunscreen.tech
+- type: GettingStarted
+  url: https://spf-docs.sunscreen.tech/docs/start
+- type: Blog
+  url: https://blog.sunscreen.tech
+- type: GitHubOrganization
+  url: https://github.com/Sunscreen-tech
+- type: Support
+  url: https://discord.gg/WHCs6jNNDS
+- type: Packages
+  url: packages/sunscreen-packages.yml
+- type: SDKs
+  url: packages/sunscreen-packages.yml
+- type: CLI
+  url: cli/sunscreen-cli.yml
+- type: Authentication
+  url: authentication/sunscreen-authentication.yml
+- type: ChangeLog
+  url: changelog/sunscreen-changelog.yml
+- type: LLMsTxt
+  url: llms/sunscreen-llms.txt
+- type: DomainSecurity
+  url: security/sunscreen-domain-security.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 7
+  pass: local-v1

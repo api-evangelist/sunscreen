@@ -1,0 +1,99 @@
+generated: '2026-07-21'
+method: searched
+source: https://crates.io/search?q=sunscreen + https://www.npmjs.com/package/@sunscreen/spf-client
+notes: >-
+  Sunscreen ships two package families. The Rust "sunscreen" crate family on
+  crates.io is the open-source FHE/ZKP compiler + runtime. The "parasol" crates
+  are the Parasol FHE processor runtime/CPU. @sunscreen/spf-client on npm is the
+  TypeScript SDK for the Sunscreen SPF (Secure Processing Framework) testnet REST
+  service; the same repo also ships the Rust `spf-client` CLI binary (see cli/).
+packages:
+  - language: rust
+    registry: crates.io
+    name: sunscreen
+    url: https://crates.io/crates/sunscreen
+    install: cargo add sunscreen
+    version: 0.8.1
+    official: true
+    description: A Fully Homomorphic Encryption (FHE) compiler supporting the BFV scheme, plus ZKP support.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_runtime
+    url: https://crates.io/crates/sunscreen_runtime
+    install: cargo add sunscreen_runtime
+    version: 0.8.1
+    official: true
+    description: Runtime for performing FHE operations within Sunscreen.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_backend
+    url: https://crates.io/crates/sunscreen_backend
+    install: cargo add sunscreen_backend
+    version: 0.8.1
+    official: true
+    description: The backend for the Sunscreen compiler.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_fhe_program
+    url: https://crates.io/crates/sunscreen_fhe_program
+    install: cargo add sunscreen_fhe_program
+    version: 0.8.1
+    official: true
+    description: Data format for Sunscreen FHE programs.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_zkp_backend
+    url: https://crates.io/crates/sunscreen_zkp_backend
+    install: cargo add sunscreen_zkp_backend
+    version: 0.8.1
+    official: true
+    description: The zero-knowledge-proof (ZKP) backend of the Sunscreen compiler.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_math
+    url: https://crates.io/crates/sunscreen_math
+    install: cargo add sunscreen_math
+    version: 0.10.0
+    official: true
+    description: GPU implementations that support the Sunscreen compiler.
+  - language: rust
+    registry: crates.io
+    name: sunscreen_tfhe
+    url: https://crates.io/crates/sunscreen_tfhe
+    install: cargo add sunscreen_tfhe
+    version: 0.10.0
+    official: true
+    description: The Sunscreen Torus FHE (TFHE) implementation.
+  - language: rust
+    registry: crates.io
+    name: parasol_runtime
+    url: https://crates.io/crates/parasol_runtime
+    install: cargo add parasol_runtime
+    version: 0.10.0
+    official: true
+    description: Supports the Parasol CPU — key generation, encryption, and FHE execution.
+  - language: rust
+    registry: crates.io
+    name: parasol_cpu
+    url: https://crates.io/crates/parasol_cpu
+    install: cargo add parasol_cpu
+    version: 0.10.0
+    official: true
+    description: The Parasol CPU, which runs programs over a mix of encrypted and plaintext data.
+  - language: typescript
+    registry: npm
+    name: "@sunscreen/spf-client"
+    url: https://www.npmjs.com/package/@sunscreen/spf-client
+    install: npm install @sunscreen/spf-client
+    version: 0.2.2
+    official: true
+    repository: https://github.com/Sunscreen-tech/spf-client
+    description: TypeScript client library (wraps the Rust WASM bindings) for the Sunscreen SPF REST service.
+  - language: rust
+    registry: github-releases
+    name: spf-client
+    url: https://github.com/Sunscreen-tech/spf-client/releases
+    install: cargo build --release  # binary at ./target/release/spf-client
+    version: 0.2.2
+    official: true
+    description: Standalone Rust CLI binary (`spf`) for encrypting, uploading, running, and managing SPF FHE operations.
